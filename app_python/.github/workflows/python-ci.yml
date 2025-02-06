@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r app_python/requirements.txt
 
       - name: Run linter (flake8)
         run: |
@@ -41,7 +41,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          python manage.py test
+          python app_python/manage.py test
           
   snyk-security:
     runs-on: ubuntu-latest
@@ -59,7 +59,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r app_python/requirements.txt
 
       - name: Run Snyk Security Scan
         uses: snyk/actions/python@master
@@ -90,7 +90,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/moscow-time-app:latest 
-
-
-
+          tags: ${{ secrets.DOCKER_USERNAME }}/moscow-time-app:latest
+          
