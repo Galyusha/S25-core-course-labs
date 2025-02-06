@@ -41,7 +41,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          python app_python/manage.py test
+          python app_python/time_app/manage.py test
           
   snyk-security:
     runs-on: ubuntu-latest
