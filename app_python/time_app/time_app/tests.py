@@ -17,7 +17,6 @@ class MoscowTimeViewTests(TestCase):
         response = self.client.get(reverse('moscow_time'))
         self.assertEqual(response.status_code, 200)
 
-
     def test_moscow_time_view_content(self):
         """
         Test if the response contains the correct Moscow time format.
@@ -26,7 +25,6 @@ class MoscowTimeViewTests(TestCase):
         
         match = re.search(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})", response.content.decode())
         self.assertIsNotNone(match, "Response does not contain a valid timestamp")
-
 
     def test_moscow_time_correctness(self):
         """
